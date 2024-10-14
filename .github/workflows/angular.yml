@@ -24,11 +24,11 @@ jobs:
       - name: Build application
         run: npm run build  # Adjust this command as needed
 
-      # - name: Upload build artifacts
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: build
-      #     path: ./dist  # Adjust this to your build output directory
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: ./dist/demo  # Adjust this to your build output directory
 
   deploy:
     runs-on: ubuntu-latest
