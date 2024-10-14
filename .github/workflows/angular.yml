@@ -55,7 +55,8 @@ jobs:
           pwd
           ls
           ls demo
-          scp -o StrictHostKeyChecking=no -r demo/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/usr/share/nginx/html
+          scp -i ~/.ssh/ec2.pem demo/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/usr/share/nginx/html
+          # scp -o StrictHostKeyChecking=no -r demo/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/usr/share/nginx/html
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             # cd /path/to/deploy
             # Commands to start your application, e.g.:
